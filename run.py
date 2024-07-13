@@ -22,8 +22,6 @@ DB_NAME = 'events_data'
 DB_USER = 'postgres'
 DB_PASSWORD = 'root'
 
-nlp = spacy.load("en_core_web_sm")
-
 # Function to execute SQL queries
 def execute_sql_query(sql_query):
     try:
