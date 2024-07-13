@@ -4,6 +4,11 @@ import psycopg2
 import spacy
 from flask_cors import CORS
 from urllib.parse import urlparse, parse_qs
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Assume you have spaCy or another NLP library initialized
 nlp = spacy.load("en_core_web_sm")
@@ -23,7 +28,18 @@ nlp = spacy.load("en_core_web_sm")
 def execute_sql_query(sql_query):
     try:
         print("sql_query",sql_query)
-        conn = psycopg2.connect(host=DB_HOST, database=DB_NAME, user=DB_USER, password=DB_PASSWORD)
+        dbname = os.getenv('POSTGRES_DATABASE') or DB_NAME
+        user = os.getenv('POSTGRES_USER') or DB_USER
+        password = os.getenv('POSTGRES_PASSWORD') or DB_PASSWORD
+        host = os.getenv('POSTGRES_HOST') or DB_HOST
+        
+        # print(dbname,"dbname")
+        conn = psycopg2.connect(
+            host=host, 
+            database=dbname, 
+            user=user, 
+            password=password,
+              )
         cursor = conn.cursor()
 
         cursor.execute(sql_query)
