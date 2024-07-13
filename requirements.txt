@@ -4,4 +4,3 @@ flask
 psycopg2
 spacy
 flask_cors
-en_core_web_sm
