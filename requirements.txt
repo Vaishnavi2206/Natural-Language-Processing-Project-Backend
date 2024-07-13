@@ -1,0 +1,7 @@
+psycopg2-binary
+python-dotenv
+flask
+psycopg2
+spacy
+flask_cors
+dotenv
