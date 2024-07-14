@@ -18,3 +18,9 @@ Performance: Optimizing query execution with large datasets.
 Enhance NLU models for better query interpretation.
 Scale API for larger datasets and increased user demand.
 Improve documentation and testing for robustness.
+
+5]Project Setup
+git clone repository
+cd into the folder
+pip install -r requirements.txt
+python3 run.py
